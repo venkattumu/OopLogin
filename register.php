@@ -2,51 +2,113 @@
 
 include 'class.php';
 
+if(isset($_POST['signin'])){
+    $name     = $info->checkInput($_POST['name']);
+    $email    = $info->checkInput($_POST['email']);
+    $password = $info->checkInput($_POST['password']);
+    $mobile   = $info->checkInput($_POST['mobile']);
+
+    // if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+	// 		$error = "Invalid email format";
+	// 	} else if(strlen($name) > 20){
+	// 		$error = "Name Should be between 6 to 20";
+	// 	} else if(strlen($password) < 7){
+	// 		$error = "Password is too short";
+	// 	} else{
+    //             $user_id = $info->insert('info', array('name' => $name, 'email' => $email, 'mobile' => $mobile, 'password' => $password ));
+    //             $_SESSION['id'] = $user_id;
+	// 			header("location: https://www.youtube.com/");
+	// 		}
+	// 	}
 
 
+   $sql =  "INSERT INTO info "
+
+    }
+
+
+
+
+include_once 'header.php';
 ?>
+<!-- breadcrum -->
+<div class="bc-icons-2 mt-5 pt-4">
 
-<!DOCTYPE html>
-<html lang="en">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb indigo lighten-4">
+      <li class="breadcrumb-item"><a class="black-text" href="#">Home</a><i class="fas fa-caret-right mx-2"
+          aria-hidden="true"></i></li>
+      <li class="breadcrumb-item"><a class="black-text" href="#">Library</a><i class="fas fa-caret-right mx-2"
+          aria-hidden="true"></i></li>
+      <li class="breadcrumb-item active">Data</li>
+    </ol>
+  </nav>
+</div>  
+<!-- end breadcrum -->
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="css/style.css" rel="stylesheet">
-</head>
+<div class="container mt-4 text-center">
+    <div class="col-md-6 text-center">
+<!-- Default form register -->
+<form class="text-center border border-light p-5" method="post" action ="">
 
-<body>
+    <p class="h4 mb-4">Sign up</p>
 
-  <!-- Start your project here-->
-  <div style="height: 100vh">
-    <div class="flex-center flex-column">
+   
+        
+    <!-- Full name -->
+    <input type="text" name="name" id="defaultRegisterFormFullName" class="form-control mb-4" placeholder="Full name">
+    
+    <!-- E-mail -->
+    <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-      <h1 class="text-hide animated fadeIn mb-4" style="background-image: url('https://mdbootstrap.com/img/logo/mdb-transparent-250px.png'); width: 250px; height: 90px;">MDBootstrap</h1>
-      <h5 class="animated fadeIn mb-3">Thank you for using our product. We're glad you're with us.</h5>
+    <!-- Password -->
+    <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters 
+    </small>
 
-      <p class="animated fadeIn text-muted">MDB Team</p>
+    <!-- Phone number -->
+    <input type="text" name="mobile" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+        Optional - for two step authentication
+    </small>
+
+    <!-- Newsletter -->
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" name="" class="custom-control-input" id="defaultRegisterFormNewsletter">
+        <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
     </div>
-  </div>
-  <!-- /Start your project here-->
 
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.js"></script>
-</body>
+    <!-- Sign up button -->
+    <input class="btn btn-info my-4 btn-block" type="submit" name="signin" value = "Sign in">
 
-</html>
+    <!-- Social register -->
+    <p>or sign up with:</p>
+
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <hr>
+
+    <!-- Terms of service -->
+    <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+
+</form>
+<!-- Default form register -->
+</div>
+</div>
+<?php 
+    include_once 'footer.php';
+?>
